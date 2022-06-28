@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-
 """
-    Define a function that adds 2 integers
+    Defines a function that calculates addition
+    of two integers
 """
 
 
 def add_integer(a, b=98):
-    """calculate sum of two integers"""
+    """Calculates sum of two integers"""
 
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
@@ -16,4 +16,4 @@ def add_integer(a, b=98):
     a = int(a) if isinstance(a, float) else a
     b = int(b) if isinstance(b, float) else b
 
-    return a + b
+    return (a + b)
