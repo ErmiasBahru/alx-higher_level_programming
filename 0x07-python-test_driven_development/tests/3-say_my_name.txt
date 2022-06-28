@@ -1,0 +1,58 @@
+===============================
+ How to Use 3-say_my_name.py
+===============================
+
+This module contains one function
+
+``say_my_name(first_name, last_name="")``
+
+Contains two parameters:-
+
+first_name (str)
+last_name (str)
+
+last_name contains a default value of empty sring
+
+The function prints the name with the following string
+My name is <first name> <last name> depending of the arguments
+first and last name passed to it
+
+Strings
+=======
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Case where first_name only is passed
+
+>>> say_my_name("Alex")
+My name is Alex 
+
+Case where both names are passed
+
+>>> say_my_name("Alex", "Steve")
+My name is Alex Steve
+
+
+Exceptions
+==========
+
+When using ``say_my_name()`` with the wrong parameter values
+errors are raised
+
+Case other data type passed to first_name
+
+>>> say_my_name(["Alex"], "Steve")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+Case other data type other than string is passed to last_name
+
+>>> say_my_name("Alex", ('S','t','e','v','e'))
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+Case where first_name is ""
+
+>>> say_my_name("", "Steve")
+Traceback (most recent call last):
+ValueError: first_name is required

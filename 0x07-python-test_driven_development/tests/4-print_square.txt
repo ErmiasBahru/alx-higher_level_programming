@@ -1,0 +1,65 @@
+===============================
+ How to Use 4-print_square.py
+===============================
+
+This module contains of one function
+
+``print_square(size)``
+
+Function prints out a square using `#` character depending
+or size parameter
+
+Usage
+=====
+
+Cases with the correct parameter case
+
+>>> print_square = __import__('4-print_square').print_square
+>>> print_square(4)
+####
+####
+####
+####
+
+Case with `size` as 0
+
+>>> print_square(0)
+>>>
+
+Case with `size` as 1
+
+>>> print_square(1)
+#
+
+Case with `size` as a float
+
+>>> print_square(3.55)
+###
+###
+###
+
+
+Exceptions
+==========
+
+There are times error occur while using ``print_square(size)``
+function. This cases that an exception would occure are as:-
+
+Case where `size` neither an integer nor a float
+
+>>> print_square(None)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+Case where `size` is a float but is less than 0
+
+>>> print_square(-3.55)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+Case where `size` is less than 0
+
+>>> print_square(-3)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+

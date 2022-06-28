@@ -1,0 +1,50 @@
+===============================
+ How to Use 0-add_integer.py
+===============================
+
+This library contains only one function called
+
+``add_integer(a, b=98):``
+
+parameter `b` contains a default value of 98
+
+Numbers:
+
+``add_integer()`` computes returns the sum of it's arguments
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+It works with normal numbers
+
+>>> add_integer(9, 5)
+14
+
+It also worksl with floating numbers
+
+>>> add_integer(9, 5.55)
+14
+
+>>> add_integer(9.786, 5.868)
+14
+
+It also works with one argument
+
+>>> add_integer(2)
+100
+
+Strings:
+
+``add_integer()`` doesnt't work with other type other that integers
+and floating point numbers
+
+>>> add_integer(4, "holberton") #doctest: +ELLIPSIS
+Traceback (most recent call last):
+TypeError: ... must be an integer
+
+>>> add_integer("alx")
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(["a", 3, 6], (2, 6, 9))
+Traceback (most recent call last):
+TypeError: a must be an integer
