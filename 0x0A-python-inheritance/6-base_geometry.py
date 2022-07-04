@@ -3,6 +3,7 @@
 
 
 class BaseGeometry():
+    """An empty class"""
     pass
 
     def area(self):
