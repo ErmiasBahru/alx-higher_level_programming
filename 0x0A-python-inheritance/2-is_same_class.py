@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Contains a single function"""
+
 
 def is_same_class(obj, a_class):
     """
