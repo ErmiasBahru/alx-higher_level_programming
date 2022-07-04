@@ -1,0 +1,73 @@
+=================================
+   Documentation of 1-my_list.py
+=================================
+
+This module contains of a class `MyList` that inherits from the `list` base class
+
+Contains a single method
+
+def print_sorted(self):
+prints the list, but sorted (ascending sort)
+
+
+Test Cases:
+===========
+
+>>> MyList = __import__('1-my_list').MyList
+
+Case appending
+
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+Case sorting
+
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+Case printing the list again without sorting
+
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+Case negative numbers
+
+>>> my_list.clear()
+>>> my_list.append(-5)
+>>> my_list.append(-3)
+>>> my_list.append(-6)
+>>> my_list.append(-10)
+>>> my_list.append(-4)
+>>> print(my_list)
+[-5, -3, -6, -10, -4]
+
+>>> my_list.print_sorted()
+[-10, -6, -5, -4, -3]
+
+Case with floating points
+
+>>> my_list.clear()
+>>> my_list.append(5.7)
+>>> my_list.append(9.6)
+>>> my_list.append(0.7)
+>>> my_list.append(0)
+>>> my_list.append(-4)
+>>> print(my_list)
+[5.7, 9.6, 0.7, 0, -4]
+
+>>> my_list.print_sorted()
+[-4, 0, 0.7, 5.7, 9.6]
+
+Case empty list
+
+>>> my_list.clear()
+>>> print(my_list)
+[]
+>>> my_list.print_sorted()
+[]
