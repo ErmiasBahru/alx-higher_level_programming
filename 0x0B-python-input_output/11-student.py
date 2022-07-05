@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Class definationo of student"""
+"""Class defination of student"""
 
 
 class Student:
-    """defines a student class"""
+    """Defines a student class"""
     def __init__(self, first_name, last_name, age):
         """Initializes instance data"""
         self.first_name = first_name
@@ -23,6 +23,6 @@ class Student:
 
     def reload_from_json(self, json):
         """
-            replaces all attributes of the Student instance
+            Replaces all attributes of the Student instance
         """
         self.__dict__.update(json)
