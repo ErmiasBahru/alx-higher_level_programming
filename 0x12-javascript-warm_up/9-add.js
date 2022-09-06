@@ -2,7 +2,7 @@
 const { argv } = require('process');
 
 /**
- * add - adds tow numbers
+ * add - adds two numbers
  * Return: sum of two numbers
  */
 function add (a, b) {
