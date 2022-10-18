@@ -8,7 +8,7 @@ const process = require('process');
 const filmId = process.argv[2];
 const url = `https://swapi-api.hbtn.io/api/films/${filmId}`;
 
-request.get(url, (err, response, body) => {
+request.get(url, (err, _resp, body) => {
     if (err === null) {
         const film = JSON.parse(body);
         const characters = film.characters;
