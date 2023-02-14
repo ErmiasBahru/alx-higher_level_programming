@@ -2,6 +2,7 @@
 """
 Lists all State objects and corresponding City objects contained in the DB
 """
+
 import sys
 from relationship_state import Base, State
 from relationship_city import City
@@ -10,9 +11,10 @@ from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
-                           format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                           pool_pre_ping=True)
+    engine = create_engine(
+        f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost:3306/{sys.argv[3]}',
+        pool_pre_ping=True,
+    )
     Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
@@ -21,6 +23,6 @@ if __name__ == '__main__':
     st = session.query(State).outerjoin(City).order_by(State.id, City.id).all()
 
     for state in st:
-        print("{}: {}".format(state.id, state.name))
+        print(f"{state.id}: {state.name}")
         for city in state.cities:
-            print("    {}: {}".format(city.id, city.name))
+            print(f"    {city.id}: {city.name}")

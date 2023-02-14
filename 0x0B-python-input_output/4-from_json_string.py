@@ -5,5 +5,4 @@ import json
 
 def from_json_string(my_str):
     """Change string to json obj"""
-    deserialized_json = json.loads(my_str)
-    return deserialized_json
+    return json.loads(my_str)

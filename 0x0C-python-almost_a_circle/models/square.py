@@ -32,7 +32,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Updates the values of the class"""
-        if args and len(args) > 0:
+        if args:
             keys = ["id", "size", "x", "y"]
             for i, v in enumerate(args):
                 setattr(self, keys[i], v)
@@ -45,10 +45,4 @@ class Square(Rectangle):
         Returns:
             dictionary containing it's attributes
         """
-        dictionary = {
-                "id": self.id,
-                "size": self.size,
-                "x": self.x,
-                "y": self.y
-        }
-        return dictionary
+        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}

@@ -2,7 +2,7 @@
 Rectangle = __import__('4-rectangle').Rectangle
 
 my_rectangle = Rectangle(2, 4)
-print(str(my_rectangle))
+print(my_rectangle)
 print("--")
 print(my_rectangle)
 print("--")
@@ -13,7 +13,7 @@ print("--")
 
 # create new instance based on representation
 new_rectangle = eval(repr(my_rectangle))
-print(str(new_rectangle))
+print(new_rectangle)
 print("--")
 print(new_rectangle)
 print("--")

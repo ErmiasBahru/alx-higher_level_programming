@@ -25,12 +25,13 @@ class Rectangle(Base):
     def __str__(self):
         """Returns string representation of the instance"""
         string = "[{}] ({}) {}/{} - {}"
-        if type(self) == Rectangle:
-            return "{}/{}".format(string.format(self.__class__.__name__,
-                                                self.id, self.__x, self.__y,
-                                                self.__width), self.__height)
-        return string.format(self.__class__.__name__, self.id, self.__x,
-                             self.__y, self.__width)
+        return (
+            f"{string.format(self.__class__.__name__, self.id, self.__x, self.__y, self.__width)}/{self.__height}"
+            if type(self) == Rectangle
+            else string.format(
+                self.__class__.__name__, self.id, self.__x, self.__y, self.__width
+            )
+        )
 
     @staticmethod
     def validate_input(**kwargs):
@@ -38,16 +39,17 @@ class Rectangle(Base):
         instance attributes
         """
         for name, value in kwargs.items():
-            if name == "x" or name == "y":
-                if type(value) != int:
-                    raise TypeError("{} must be an integer".format(name))
-                elif value < 0:
-                    raise ValueError("{} must be >= 0".format(name))
-            else:
-                if type(value) != int:
-                    raise TypeError("{} must be an integer".format(name))
-                elif value <= 0:
-                    raise ValueError("{} must be > 0".format(name))
+            if (
+                name in ["x", "y"]
+                and type(value) != int
+                or name not in ["x", "y"]
+                and type(value) != int
+            ):
+                raise TypeError(f"{name} must be an integer")
+            elif name in ["x", "y"] and value < 0:
+                raise ValueError(f"{name} must be >= 0")
+            elif name not in ["x", "y"] and value <= 0:
+                raise ValueError(f"{name} must be > 0")
 
     @property
     def width(self):
@@ -116,16 +118,16 @@ class Rectangle(Base):
         """Prints in stdout the Rectangle instance with the
         character `#`
         """
-        [print() for i in range(self.__y)]
-        for i in range(self.__height):
-            [print(" ", end="") for i in range(self.__x)]
-            for j in range(self.__width):
+        [print() for _ in range(self.__y)]
+        for _ in range(self.__height):
+            [print(" ", end="") for _ in range(self.__x)]
+            for _ in range(self.__width):
                 print("#", end="")
             print()
 
     def update(self, *args, **kwargs):
         """Updates the values of the class"""
-        if args and len(args) > 0:
+        if args:
             keys = ["id", "width", "height", "x", "y"]
             for i, v in enumerate(args):
                 setattr(self, keys[i], v)
@@ -138,11 +140,10 @@ class Rectangle(Base):
         Returns:
             dictionary containing it's attributes
         """
-        dictionary = {
-                "id": self.id,
-                "width": self.width,
-                "height": self.height,
-                "x": self.x,
-                "y": self.y
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y,
         }
-        return dictionary

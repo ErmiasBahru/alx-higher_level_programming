@@ -18,9 +18,9 @@ def text_indentation(text):
         if c.isspace() and begin == 0:
             continue
         elif c in delimeters:
-            print("{}\n\n".format(c), end="")
+            print(f"{c}\n\n", end="")
             begin = 0
             continue
         else:
-            print("{}".format(c), end="")
+            print(f"{c}", end="")
             begin += 1

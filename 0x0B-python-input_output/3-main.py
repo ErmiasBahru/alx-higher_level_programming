@@ -26,4 +26,4 @@ try:
     print(s_my_set)
     print(type(s_my_set))
 except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    print(f"[{e.__class__.__name__}] {e}")

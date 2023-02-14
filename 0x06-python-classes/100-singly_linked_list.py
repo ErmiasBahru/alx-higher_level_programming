@@ -68,7 +68,7 @@ class SinglyLinkedList:
         head = self.__head
         values = []
         while head is not None:
-            values.append("{}".format(head.data))
+            values.append(f"{head.data}")
             head = head.next_node
         return "\n".join(values)
 
@@ -78,7 +78,7 @@ class SinglyLinkedList:
             value (int): integer to assign to `data` of Node object
         """
         head = self.__head
-        if head is None or (head is not None and head.data >= value):
+        if head is None or head.data >= value:
             new_node = Node(value, head)
             self.__head = new_node
             return

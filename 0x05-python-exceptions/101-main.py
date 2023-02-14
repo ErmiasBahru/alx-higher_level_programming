@@ -6,10 +6,10 @@ def my_div(a, b):
     return a / b
 
 result = safe_function(my_div, 10, 2)
-print("result of my_div: {}".format(result))
+print(f"result of my_div: {result}")
 
 result = safe_function(my_div, 10, 0)
-print("result of my_div: {}".format(result))
+print(f"result of my_div: {result}")
 
 
 def print_list(my_list, len):
@@ -20,4 +20,4 @@ def print_list(my_list, len):
     return len
 
 result = safe_function(print_list, [1, 2, 3, 4], 10)
-print("result of print_list: {}".format(result))
+print(f"result of print_list: {result}")

@@ -32,22 +32,16 @@ class Base:
         """Converts dictionaries to their string
         representation i.e JSON
         """
-        if list_dictionaries is None:
-            return "[]"
-
-        return json.dumps(list_dictionaries)
+        return "[]" if list_dictionaries is None else json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
         """Writes the JSON string representation of `list_objs`
         to a file
         """
-        if list_objs is None:
-            data = []
-        else:
-            data = [i.to_dictionary() for i in list_objs]
+        data = [] if list_objs is None else [i.to_dictionary() for i in list_objs]
         string = cls.to_json_string(data)
-        filename = "{}.json".format(cls.__name__)
+        filename = f"{cls.__name__}.json"
 
         with open(filename, encoding="utf-8", mode="w") as f:
             f.write(string)
@@ -81,7 +75,7 @@ class Base:
         Returns:
             a list of instances:
         """
-        filename = "{}.json".format(cls.__name__)
+        filename = f"{cls.__name__}.json"
 
         try:
             with open(filename, encoding="utf-8") as f:
@@ -90,5 +84,4 @@ class Base:
             return []
 
         json = cls.from_json_string(string)
-        instances = [cls.create(**instance) for instance in json]
-        return instances
+        return [cls.create(**instance) for instance in json]

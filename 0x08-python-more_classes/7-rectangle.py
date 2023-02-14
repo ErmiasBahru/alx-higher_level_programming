@@ -32,8 +32,7 @@ class Rectangle:
         if not isinstance(self.print_symbol, str):
             self.print_symbol = str(self.print_symbol)
         for i in range(self.__height):
-            for j in range(self.__width):
-                string.append(self.print_symbol)
+            string.extend(self.print_symbol for _ in range(self.__width))
             if i < (self.__height - 1):
                 string.append("\n")
         return "".join(string)

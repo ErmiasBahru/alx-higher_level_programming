@@ -14,4 +14,4 @@ def say_my_name(first_name, last_name=""):
     if first_name == "":
         raise ValueError("first_name is required")
 
-    print("My name is {} {}".format(first_name, last_name))
+    print(f"My name is {first_name} {last_name}")

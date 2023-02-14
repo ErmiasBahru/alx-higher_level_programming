@@ -6,13 +6,13 @@ if __name__ == "__main__":
         exit()
     arg_num = len(sys.argv) - 1
     if len(sys.argv) == 2:
-        print('{} argument:'.format(arg_num))
+        print(f'{arg_num} argument:')
     else:
-        print('{} arguments:'.format(arg_num))
+        print(f'{arg_num} arguments:')
 
     count = 0
     for i in sys.argv:
         count = count + 1
         if count == 1:
             continue
-        print('{}: {}'.format(count - 1, i))
+        print(f'{count - 1}: {i}')

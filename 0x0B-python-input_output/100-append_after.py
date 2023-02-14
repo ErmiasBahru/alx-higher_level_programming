@@ -13,11 +13,9 @@ def append_after(filename="", search_string="", new_string=""):
     """
     lines = ""
     with open(filename, encoding="utf-8", mode="r") as f:
-        readline = f.readline()
-        while readline:
+        while readline := f.readline():
             lines += readline
             if search_string in readline:
                 lines += new_string
-            readline = f.readline()
     with open(filename, encoding="utf-8", mode="w") as f:
         f.write(lines)

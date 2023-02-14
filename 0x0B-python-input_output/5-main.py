@@ -23,4 +23,4 @@ try:
     my_set = {132, 3}
     save_to_json_file(my_set, filename)
 except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    print(f"[{e.__class__.__name__}] {e}")

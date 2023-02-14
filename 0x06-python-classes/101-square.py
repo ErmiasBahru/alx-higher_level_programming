@@ -25,7 +25,7 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         if len(position) != 2 or not all(isinstance(v, int) for v in position):
             raise TypeError("position must be a tuple of 2 positive integers")
-        if not all(num >= 0 for num in position):
+        if any(num < 0 for num in position):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
 
@@ -35,12 +35,10 @@ class Square:
         if self.__size == 0:
             return ""
 
-        [square.append("\n") for i in range(self.position[1])]
+        [square.append("\n") for _ in range(self.position[1])]
         for i in range(self.__size):
-            for j in range(self.__position[0]):
-                square.append(" ")
-            for k in range(self.__size):
-                square.append("#")
+            square.extend(" " for _ in range(self.__position[0]))
+            square.extend("#" for _ in range(self.__size))
             if i < (self.__size - 1):
                 square.append("\n")
         return "".join(square)
@@ -93,7 +91,7 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         if len(value) != 2 or not all(isinstance(v, int) for v in value):
             raise TypeError("position must be a tuple of 2 positive integers")
-        if not all(num >= 0 for num in value):
+        if any(num < 0 for num in value):
             raise TypeError("position must be a tuple of 2 positive integers")
 
         self.__position = value
@@ -104,10 +102,10 @@ class Square:
             print()
             return
 
-        [print() for i in range(self.position[1])]
-        for i in range(self.__size):
-            for i in range(self.__position[0]):
+        [print() for _ in range(self.position[1])]
+        for _ in range(self.__size):
+            for _ in range(self.__position[0]):
                 print(" ", end="")
-            for i in range(self.__size):
+            for _ in range(self.__size):
                 print("#", end="")
             print()
